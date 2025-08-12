@@ -1,0 +1,6 @@
+*.RData
+*.Ruserdata
+*.DS_Store
+*.Rhistory
+*.Rproj.user
+*week-4/input
