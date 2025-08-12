@@ -1,6 +1,7 @@
 
 
 
+rm(list=ls())
 ## librerias
 library(tidyverse)
 require(rio)
@@ -28,3 +29,13 @@ df$`Activos M.`[filas_error] <- 999999
 export(df , "week-04/output/empresas_cali.rds")
 
 
+##
+df <- df[,.(unique_id,razon_social)]
+
+## crear variables
+set.seed(123)
+df$`empleados` <- round(rnorm(nrow(df),100,25))
+df$`sedes` <- round(rnorm(nrow(df),10,2.8))
+
+## export datos
+export(df , "week-04/output/empresas_cali_sedes.rds")
