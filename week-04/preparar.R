@@ -29,6 +29,8 @@ df$`Activos M.`[filas_error] <- 999999
 export(df , "week-04/output/empresas_cali.rds")
 
 
+
+
 ##
 df <- df[,.(unique_id,razon_social)]
 
@@ -38,4 +40,31 @@ df$`empleados` <- round(rnorm(nrow(df),100,25))
 df$`sedes` <- round(rnorm(nrow(df),10,2.8))
 
 ## export datos
-export(df , "week-04/output/empresas_cali_sedes.rds")
+export(df , "week-04/output/sedes_cali.rds")
+
+##
+df <- df[,.(unique_id,razon_social)]
+
+## crear variables
+set.seed(123)
+df_24 <- df[,.(unique_id,razon_social)]
+df_24$clientes <- round(rnorm(nrow(df),1000,200))
+df_24$year <- 2024
+
+df_25$clientes <- df_24$clientes + round(rnorm(nrow(df),100,10))
+df_25$year <- 2025
+
+db <- bind_rows(df_24 , df_25)
+
+## export datos
+export(db , "week-04/output/clientes_cali.rds")
+
+
+
+
+
+
+
+
+
+
