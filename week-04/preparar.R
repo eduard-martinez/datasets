@@ -25,6 +25,6 @@ df$`Patrimonio M.` <- df$`Activos M.` + df$`Pasivos M.`
 df$`Activos M.`[filas_error] <- 999999
 
 ## export datos
-export(df , "week-04/output/empresas_cali.csv")
+export(df , "week-04/output/empresas_cali.rds")
 
 
